@@ -2,7 +2,7 @@ pipeline {
     agent any
 	
 	environment {
-		dockerImage =''
+		dockerImage = ''
 		registry = 'pathumra/welcome-loit-demo'
 	}
     stages {
@@ -24,10 +24,10 @@ pipeline {
 		
         stage('Build Docker image') {
             steps {
-                script{
-					dockerImage = docker.build registry
-				}
-				
+                script {
+                    // Build a Docker image using the Docker Pipeline plugin
+                    dockerImage = docker.build registry
+                }
             }
         }
 
