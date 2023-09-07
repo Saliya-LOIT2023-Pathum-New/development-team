@@ -1,57 +1,59 @@
 pipeline {
     agent any
-
-    environment {
-        dockerImage = ''
-        registry = 'pathumra/welcome-loit-demo'
-    }
-
     stages {
-        stage('Check For POM') {
+        stage('Checkout Code') {
             steps {
-                powershell '''if (Test-Path pom.xml) {
-                    Write-Host "POM file exists"
-                } else {
-                    Write-Host "POM file does not exist"
-                }'''
+                // Checkout code from your GitHub repository and specific branch
+                git(url: 'https://github.com/Saliya-LOIT2023-Pathum-New/development-team.git', branch: 'feat/newName1')
             }
         }
 
+
+
+        stage('Check For POM') {
+                    steps {
+                        powershell '''if (Test-Path pom.xml) {
+                            Write-Host "POM file exists"
+                        } else {
+                            Write-Host "POM file does not exist"
+                        }'''
+                    }
+                }
+
+
         stage('Build with Maven') {
             steps {
+                
                 bat 'mvn clean install'
             }
         }
 
-        stage('Build Docker image') {
+        stage('Build Docker Image') {
             steps {
+               
                 script {
-                    dockerImage = docker.build registry
+                    docker.build('pathumra/welcome-loit-demo:latest')
                 }
             }
         }
 
-        stage('Post build step') {
+        stage('Push to Docker Hub') {
             steps {
+                // Push Docker image to Docker Hub
                 script {
-                    try {
-                        // Write "Welcome-LOIT" to a file named status.txt
-                        writeFile(file: "${env.WORKSPACE}/status.txt", text: 'Welcome-LOIT')
-                    } catch (Exception e) {
-                        currentBuild.result = 'FAILURE'
-                        error("Failed to write status.txt: ${e.message}")
+                    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub-credentials') {
+                        docker.image('pathumra/welcome-loit-demo:latest').push()
                     }
                 }
             }
         }
-    }
 
-    post {
-        success {
-            echo "Build and post-build steps completed successfully."
-        }
-        failure {
-            echo "Build or post-build steps failed."
+
+
+        stage('Post build step') {
+            steps {
+                writeFile(file: 'status.txt', text: 'Welcome-LOIT')
+            }
         }
     }
 }
