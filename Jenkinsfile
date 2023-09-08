@@ -20,13 +20,7 @@ pipeline {
                 bat 'mvn clean install'
             }
         }
-        stage('Build Docker Image') {
-            steps {
-                script {
-                    docker.build('pathumra/welcome-loit-demo')
-                }
-            }
-        }
+
         stage('Post build step') {
             steps {
                 writeFile(file: 'status.txt', text: 'Welcome-LOIT')
