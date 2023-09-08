@@ -24,7 +24,7 @@ pipeline {
       stage('Build Docker Image') {
             steps {
                 // Build a Docker image
-                bat 'docker build -t welcome-loit-demo -f pathumra .'
+                bat 'docker build -t welcome-loit-demo -f pathumra'
             }
         }
 
