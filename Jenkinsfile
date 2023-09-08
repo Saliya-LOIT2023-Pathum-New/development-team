@@ -21,12 +21,10 @@ pipeline {
             }
         }
         
-        stage('Build Docker Image') {
+      stage('Build Docker Image') {
             steps {
                 // Build a Docker image
-                script {
-                    docker.build('pathumra/welcome-loit-demo')
-                }
+                bat 'docker build -t welcome-loit-demo -f pathumra .'
             }
         }
 
