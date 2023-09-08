@@ -1,36 +1,32 @@
 pipeline {
     agent any
-	
-	environment {
-		dockerImage =''
-		registry = 'pathumra/welcome-loit-demo'
-	}
     stages {
-        stage('Check For POM') {
+        stage('Checkout Code') {
             steps {
-                powershell '''if (Test-Path pom.xml) {
-                    Write-Host "POM file exists"
-                } else {
-                    Write-Host "POM file does not exist"
-                }'''
+                git(url: 'https://github.com/Saliya-LOIT2023-Pathum-New/development-team.git', branch: 'feat/newName1')
             }
         }
-
+        stage('Check For POM') {
+            steps {
+                   powershell '''if (Test-Path pom.xml) {
+                   Write-Host "POM file exists"
+                        } else {
+                            Write-Host "POM file does not exist"
+                        }'''
+                    }
+                }
         stage('Build with Maven') {
             steps {
                 bat 'mvn clean install'
             }
         }
-		
-        stage('Build Docker image') {
+        stage('Build Docker Image') {
             steps {
-                script{
-					dockerImage = docker.build registry
-				}
-				
+                script {
+                    docker.build('pathumra/welcome-loit-demo')
+                }
             }
         }
-
         stage('Post build step') {
             steps {
                 writeFile(file: 'status.txt', text: 'Welcome-LOIT')
