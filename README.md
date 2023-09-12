@@ -14,6 +14,8 @@ docker pull pathumra/welcome-loit-demo
 #AWS  instance
 ![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/79381896-9e8d-4830-b6eb-5dadc5af03af)
 
+
+
 #Virtual Machine
 ![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/11dcfc2c-89f0-432f-96a0-54c3f2321acb)
 
