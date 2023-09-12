@@ -19,6 +19,9 @@ docker pull pathumra/welcome-loit-demo
 #Virtual Machine
 ![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/11dcfc2c-89f0-432f-96a0-54c3f2321acb)
 
+#Answers
+https://lolcgroup-my.sharepoint.com/:w:/g/personal/pathumra_lolctech_com/EfTXUBh68lFOiSfUK4R7LtoB8_Ywt_2SEUSxB9IuPUazKA?e=04Sr7V
+
 
 
 
