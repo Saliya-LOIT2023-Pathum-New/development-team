@@ -11,5 +11,9 @@ docker pull pathumra/welcome-loit-demo
 #main pipeline test
 ![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/4ab931c2-d4c1-46b4-82b7-ff3b1ae7b7e1)
 
+#AWS  instance
+![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/79381896-9e8d-4830-b6eb-5dadc5af03af)
+
+
 
 
