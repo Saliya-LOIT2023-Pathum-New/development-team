@@ -1,6 +1,8 @@
 # LOIT-Docker 
 
 #Docker image pull comande#
+![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/46fa5818-edf0-4322-bf90-00b621e687cc)
+
 ![image](https://github.com/Saliya-LOIT2023-Pathum-New/development-team/assets/96324718/5f830a7d-3957-4fb6-a962-a96536ac5fad)
 
 docker pull pathumra/welcome-loit-demo
